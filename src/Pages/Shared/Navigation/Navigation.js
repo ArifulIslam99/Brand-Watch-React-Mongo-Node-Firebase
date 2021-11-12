@@ -7,7 +7,7 @@ const Navigation = () => {
 
   const {user, logOut} = useAuth();
     return (
-        <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
+        <Navbar collapseOnSelect expand="lg" bg="success" variant="dark">
         <Container>
         <Navbar.Brand as={Link} to='/' >Times World</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -24,7 +24,7 @@ const Navigation = () => {
           </Nav> 
           :
           <div className="d-flex">
-             <h5 className="my-auto" style={{marginRight: '15px'}}>Howdy, {user.email}</h5> <Button onClick={logOut}> LogOut </Button>
+             <h5 className="my-auto" style={{marginRight: '15px'}}>Howdy, {user.displayName}</h5> <Button onClick={logOut}> LogOut </Button>
           </div>
           
           }

@@ -3,7 +3,7 @@ import { Card, Col, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 const Product = ({product}) => {
-    const {img, model, brand, des} = product;
+    const {img, model, brand, des, _id} = product;
     return (
         <Col>
         <Card className="my-2 p-3">
@@ -16,7 +16,7 @@ const Product = ({product}) => {
             <Card.Text>
                {des}
             </Card.Text> 
-            <Link>
+            <Link to={`/purchase/${_id}`}>
               <Button variant="warning">Buy Now</Button>
             </Link>
           </Card.Body>

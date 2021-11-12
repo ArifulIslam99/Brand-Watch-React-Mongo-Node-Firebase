@@ -22,10 +22,10 @@ const Explore = () => {
             <div style={{width:'90%', margin: '0 auto '}}>
             <h2 
             style={{fontWeight:'600', color:'green',
-             borderBottom:'3px solid gray', width:'50%',
-             margin:' 10px auto',
+             borderBottom:'5px solid gray', width:'50%',
+             margin:' 10px auto',padding:'5px'
              }}
-            >Explore Your Stylish One</h2>
+            >Explore and get your Stylish One</h2>
 
                 <Row xs={1} md={3}  className="my-5">
                {

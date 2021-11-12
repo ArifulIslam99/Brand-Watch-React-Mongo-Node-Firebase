@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const AllProduct = ({product}) => {
 
-    const {img, model, brand, des} = product;
+    const {img, model, brand, des , price, _id} = product;
     return (
         <Col>
         <Card className="my-2 p-3">
@@ -17,8 +17,11 @@ const AllProduct = ({product}) => {
             <Card.Text>
                {des}
             </Card.Text> 
-            <Link>
-              <Button variant="warning">Buy Now</Button>
+            <Card.Text>
+               <h6>Price: {price}$ </h6>
+            </Card.Text> 
+            <Link to={`/purchase/${_id}`} >
+              <Button  variant="warning">Buy Now</Button>
             </Link>
           </Card.Body>
         </Card>

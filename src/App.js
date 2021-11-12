@@ -7,6 +7,7 @@ import Registration from './Pages/Login/Registration/Registration';
 import AuthProvider from './Contexts/AuthProvider/AuthProvider';
 import PrivateRoute from './Pages/Login/PrivateRoute/PrivateRoute';
 import Explore from './Pages/Explore/Explore';
+import Purchase from './Pages/Purchase/Purchase';
 
 
 
@@ -15,7 +16,8 @@ function App() {
   return (
     <div className="App">
        <AuthProvider>
-       <BrowserRouter>
+       <BrowserRouter> 
+       
             <Switch>
               <Route exact path="/">
                 <Home></Home>
@@ -26,6 +28,9 @@ function App() {
               <Route exact path="/login">
                 <Login></Login>
               </Route>
+              <PrivateRoute  path="/purchase/:id">
+                <Purchase></Purchase>
+              </PrivateRoute>
               <Route exact path="/explore">
                 <Explore></Explore>
               </Route>
