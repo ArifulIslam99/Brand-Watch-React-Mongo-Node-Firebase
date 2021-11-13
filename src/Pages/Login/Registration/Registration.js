@@ -23,6 +23,8 @@ const Registration = () => {
     const [loginData, setLoginData] = useState({});
     const {user, registerUser, error , loading} = useAuth();
     const history = useHistory();
+
+
     const handleInputChangle = event =>{
         const type = event.target.name;
         const value = event.target.value;
@@ -37,7 +39,7 @@ const Registration = () => {
         {
             alert('Password did not match')
         }
-        registerUser(loginData.email, loginData.password, history)
+        registerUser( loginData.email, loginData.password, loginData.name, history)
         event.preventDefault();
        
     }
@@ -62,6 +64,17 @@ const Registration = () => {
 
                        <form onSubmit={handleRegister}>
                    
+                       <TextField 
+                       style={{width: '60%'}}
+                       required
+                       className="my-2"
+                       id="standard-basic" 
+                       label="Enter Name" 
+                       name="name"
+                       type="text"
+                       onChange={handleInputChangle}
+                       variant="standard" /> <br />
+
                        <TextField 
                        style={{width: '60%'}}
                        required

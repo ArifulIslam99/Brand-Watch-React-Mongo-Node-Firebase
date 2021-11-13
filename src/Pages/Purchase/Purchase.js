@@ -8,6 +8,7 @@ import axios from 'axios';
 
 const Purchase = () => {
     const [product, setProduct ] = useState([])
+    
     const {id} = useParams();
     const { register, handleSubmit, reset } = useForm();
 

@@ -3,7 +3,7 @@ import initializeFirebase from  '../Pages/Firebase/firebase.init'
 
 import { getAuth, createUserWithEmailAndPassword ,signOut,
       onAuthStateChanged , signInWithEmailAndPassword ,
-      signInWithPopup, GoogleAuthProvider 
+      signInWithPopup, GoogleAuthProvider ,updateProfile 
 
 
 } from "firebase/auth";
@@ -37,11 +37,25 @@ const googleSignIn = (history, location) =>{
   }).finally(()=>setLoading(false));
 }
 
-const registerUser = (email, password, history) =>{
+const registerUser = (email, password, name, history) =>{
     setLoading(true)
     createUserWithEmailAndPassword(auth, email, password)
+    
     .then((userCredential) => {
-       history.replace('/')
+
+      const newuser = {email, displayName: name};
+      setuser(newuser)
+       updateProfile(auth.currentUser, {
+        displayName: name}).then(() => {
+          
+        
+      }).catch((error) => {
+        setError(error.message)
+      });
+
+      history.push('/')
+   
+       
        setError("");
      
     })
