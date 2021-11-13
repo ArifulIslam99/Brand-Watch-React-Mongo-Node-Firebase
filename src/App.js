@@ -8,6 +8,8 @@ import AuthProvider from './Contexts/AuthProvider/AuthProvider';
 import PrivateRoute from './Pages/Login/PrivateRoute/PrivateRoute';
 import Explore from './Pages/Explore/Explore';
 import Purchase from './Pages/Purchase/Purchase';
+import Dashboard from './Pages/Dashboard/Dashboard/Dashboard';
+import UserOrders from './Pages/Dashboard/UserOrders/UserOrders';
 
 
 
@@ -22,19 +24,23 @@ function App() {
               <Route exact path="/">
                 <Home></Home>
               </Route>
-              <Route exact path="/home">
+              <Route  path="/home">
                 <Home></Home>
               </Route>
-              <Route exact path="/login">
+              <Route  path="/login">
                 <Login></Login>
               </Route>
+              <PrivateRoute  path="/dashboard">
+                <Dashboard></Dashboard>
+              </PrivateRoute>
               <PrivateRoute  path="/purchase/:id">
                 <Purchase></Purchase>
               </PrivateRoute>
-              <Route exact path="/explore">
+              <Route  path="/explore">
                 <Explore></Explore>
               </Route>
-              <Route exact path="/register">
+              
+              <Route path="/register">
                  <Registration></Registration>
               </Route>
             </Switch>

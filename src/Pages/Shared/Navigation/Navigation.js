@@ -15,16 +15,21 @@ const Navigation = () => {
           <Nav className="me-auto">
             <Nav.Link as={Link} to='/home' >Home</Nav.Link>
             <Nav.Link as={Link} to='/explore' >Explore</Nav.Link>
-          </Nav>
+          </Nav> 
           {
             (!user.uid) ? 
             <Nav>
             <Nav.Link as={Link} to='/login' >Login</Nav.Link>
-        
-          </Nav> 
+             </Nav> 
           :
           <div className="d-flex">
-             <h5 className="my-auto" style={{marginRight: '15px'}}>Howdy, {user.displayName}</h5> <Button onClick={logOut}> LogOut </Button>
+            
+            
+             <h5 className="my-auto text-white" style={{marginRight: '15px'}}>Howdy, {user.displayName}</h5> <Button onClick={logOut}> LogOut </Button>
+
+             <Nav>
+            <Nav.Link as={Link} className="fw-bolder fs-5 border rounded mx-2"  to='/dashboard' >Dashboard</Nav.Link>
+            </Nav>
           </div>
           
           }

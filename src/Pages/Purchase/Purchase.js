@@ -61,10 +61,12 @@ const Purchase = () => {
                  <h2 className="fw-bold mb-5">Customer Details</h2>
                  <form onSubmit={handleSubmit(onSubmit)}>
        <input {...register("bookingId")} readOnly value={product._id} /> <br/> <br/>
+       <input {...register("brand")} readOnly value={product.brand} /> <br/> <br/>
+       <input {...register("product_model")} readOnly value={product.model} /> <br/> <br/>
        <input {...register("Name")} readOnly value={user.displayName} /> <br/> <br/>
        <input {...register("email")} readOnly value={user.email} /> <br/> <br/>
        <input {...register("address")} placeholder="Enter Your Address"  /> <br/> <br/>
-       <input type="tel" {...register("contact number")} placeholder="Enter Your Phone Number" /> <br/>
+       <input type="tel" {...register("contact")} placeholder="Enter Your Phone Number" /> <br/>
        <input type="submit" value="Confirm booking"  style={{width:'20%',  backgroundColor:'green', color:'white', border:'1px solid green'}} />
      </form>
              </div>
