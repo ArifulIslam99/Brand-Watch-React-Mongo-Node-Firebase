@@ -44,8 +44,8 @@ const Purchase = () => {
 
         <div style={{width:'90%'}} className="my-1 mx-auto row"> 
                 <h1 className="fs-1 fw-bold my-3 text-info ">Purchase Your Watch</h1>
-            <div className=" col-lg-6 " 
-             style={{borderRight:'2px solid gray'}}
+            <div className=" col-lg-6 product-details" 
+             
             >
               <h2 className='fw-bold mb-5'>Product Details</h2>
               <img className='img-fluid w-50 h-50' src={product.img} alt="" />
@@ -60,15 +60,15 @@ const Purchase = () => {
                  <div className=" col-lg-6 mt-3">
                  <h2 className="fw-bold mb-5">Customer Details</h2>
                  <form onSubmit={handleSubmit(onSubmit)}>
-       <input {...register("bookingId")} readOnly value={product._id} /> <br/> <br/>
-       <input {...register("brand")} readOnly value={product.brand} /> <br/> <br/>
-       <input {...register("product_model")} readOnly value={product.model} /> <br/> <br/>
-       <input {...register("Name")} readOnly value={user.displayName} /> <br/> <br/>
-       <input {...register("email")} readOnly value={user.email} /> <br/> <br/>
-       <input {...register("address")} placeholder="Enter Your Address"  /> <br/> <br/>
-       <input type="tel" {...register("contact")} placeholder="Enter Your Phone Number" /> <br/>
+       <input {...register("bookingId")} readOnly value={product._id} /> <br/> 
+       <input {...register("brand")} readOnly value={product.brand} /> <br/> 
+       <input {...register("product_model")} readOnly value={product.model} /> <br/> 
+       <input {...register("Name")} readOnly value={user.displayName} /> <br/> 
+       <input {...register("email")} readOnly value={user.email} /> <br/> 
+       <input {...register("address")} placeholder="Enter Your Address"  /> <br/> 
+       <input type="tel" {...register("contact")} placeholder="Enter Your Phone Number" /> 
        <input  {...register("status")} value="pending" style={{visibility:'hidden'}} /> <br/>
-       <input type="submit" value="Confirm booking"  style={{width:'20%',  backgroundColor:'green', color:'white', border:'1px solid green'}} />
+       <input type="submit" value="Confirm booking"  style={{width:'40%',  backgroundColor:'green', color:'white', border:'1px solid green'}} />
      </form>
              </div>
              }

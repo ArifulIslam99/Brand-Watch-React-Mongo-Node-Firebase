@@ -1,16 +1,16 @@
 const firebaseConfig = {
 
-  apiKey: "AIzaSyDPC0nYK163BrBaKgwgN-uLFS5pQykWVmI",
+  apiKey: process.env.React_App_api_Key,
 
-  authDomain: "times-world-react.firebaseapp.com",
+  authDomain: process.env.React_App_auth_Domain,
 
-  projectId: "times-world-react",
+  projectId: process.env.React_App_project_Id,
 
-  storageBucket: "times-world-react.appspot.com",
+  storageBucket: process.env.React_App_storage_Bucket,
 
-  messagingSenderId: "1044724970727",
+  messagingSenderId: process.env.React_App_messaging_Sender_Id,
 
-  appId: "1:1044724970727:web:89ec824080d94e55dade42"
+  appId: process.env.React_App_app_Id
 
 };
 
