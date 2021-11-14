@@ -23,7 +23,7 @@ const UserOrders = () => {
         const procced = window.confirm('Are You Sure to Cancel Your Order?');
         if(procced)
         {
-            fetch(`http://localhost:5000/order/${id}`,{
+            fetch(`https://quiet-chamber-40235.herokuapp.com/order/${id}`,{
                 method: 'DELETE'
             })
             .then(res => res.json() )
@@ -52,6 +52,7 @@ const UserOrders = () => {
             <TableCell>Model Name</TableCell>
             <TableCell align="right">User Address</TableCell>
             <TableCell align="right">Contact Number</TableCell>
+            <TableCell align="right">Order Status</TableCell>
             <TableCell align="right">Cancel Orders</TableCell>
             
           </TableRow>
@@ -70,6 +71,7 @@ const UserOrders = () => {
               </TableCell>
               <TableCell align="right">{row.address}</TableCell>
               <TableCell align="right">{row.contact}</TableCell>
+              <TableCell align="right">{row.status}</TableCell>
               <TableCell  align="right"><Button onClick={()=>deleteOrder(row._id)} sx={{color:'red',width: '80px'}}><i class="fas fa-window-close"></i></Button></TableCell>
               
             </TableRow>
