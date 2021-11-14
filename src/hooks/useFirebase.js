@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import initializeFirebase from  '../Pages/Firebase/firebase.init'
-
+import axios from 'axios';
 import { getAuth, createUserWithEmailAndPassword ,signOut,
       onAuthStateChanged , signInWithEmailAndPassword ,
       signInWithPopup, GoogleAuthProvider ,updateProfile 
@@ -18,9 +18,17 @@ const useFirebase = () =>{
 const [user, setuser] = useState({});
 const [loading, setLoading] = useState(true);
 const [error, setError] = useState("");
+const [admin, setAdmin] = useState(false);
 const googleProvider =   new GoogleAuthProvider();
 
-
+  
+    useEffect(()=>{
+      const uri = `https://quiet-chamber-40235.herokuapp.com/users/${user.email}`;
+      fetch(uri)
+      .then(res => res.json())
+      .then(data => setAdmin(data.admin))
+    },[user])
+  
 const googleSignIn = (history, location) =>{
   setLoading(true)
   signInWithPopup(auth, googleProvider)
@@ -28,7 +36,8 @@ const googleSignIn = (history, location) =>{
     
     const user = result.user;
     setError("")
-    const destination = location?.state?.from || '/' ;
+    saveUser(user.email, user.displayName, 'PUT')
+    const destination = location?.state?.from || '/dashboard' ;
     history.replace(destination)
     
   }).catch((error) => {
@@ -48,12 +57,13 @@ const registerUser = (email, password, name, history) =>{
        updateProfile(auth.currentUser, {
         displayName: name}).then(() => {
           
+          saveUser(email,name, 'POST');
         
       }).catch((error) => {
         setError(error.message)
       });
 
-      history.push('/')
+      history.push('/dashboard')
    
        
        setError("");
@@ -70,7 +80,7 @@ const loginUser = (email, password, history, location) =>{
     signInWithEmailAndPassword(auth, email, password)
   .then((userCredential) => {
     
-    const destination = location?.state?.from || '/' ;
+    const destination = location?.state?.from || '/dashboard' ;
     history.replace(destination)
     setError('');
     
@@ -79,7 +89,7 @@ const loginUser = (email, password, history, location) =>{
     setError(error.message);
   }).finally(()=>setLoading(false))
   ;
-}
+} 
 useEffect( ()=>{
   const unSubscribe =   onAuthStateChanged(auth, (user) => {
         if (user) {
@@ -92,9 +102,30 @@ useEffect( ()=>{
       });
 
       return ()=> unSubscribe;
-} , []) 
+} , [])  
+
 
  
+ const saveUser = (email, name, method) =>{
+ 
+  const newUser = {email: email, displayName: name};
+   
+  if(method==='POST')
+  {
+    axios.post('https://quiet-chamber-40235.herokuapp.com/users', newUser)
+    
+  }
+  else
+  {
+    axios.put('https://quiet-chamber-40235.herokuapp.com/users', newUser)
+   
+  }
+  
+  
+ } 
+
+
+  
 const logOut = () =>{
     signOut(auth).then(() => {
         
@@ -111,7 +142,8 @@ return {
     loginUser,
     loading,
     error,
-    googleSignIn
+    googleSignIn,
+    admin
 }
 
 }

@@ -28,7 +28,7 @@ const Navigation = () => {
              <h5 className="my-auto text-white" style={{marginRight: '15px'}}>Howdy, {user.displayName}</h5> <Button onClick={logOut}> LogOut </Button>
 
              <Nav>
-            <Nav.Link as={Link} className="fw-bolder fs-5 border rounded mx-2"  to='/dashboard' >Dashboard</Nav.Link>
+            <Nav.Link as={Link} className="fw-bolder mx-2"  to='/dashboard' >Dashboard</Nav.Link>
             </Nav>
           </div>
           

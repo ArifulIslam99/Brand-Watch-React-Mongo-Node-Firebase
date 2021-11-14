@@ -7,6 +7,7 @@ import { Button } from 'react-bootstrap';
 import { Link, useHistory, useLocation } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 import { Alert } from '@mui/material';
+import './Login.css'
 
 
 const loginStyle={
@@ -51,8 +52,8 @@ const Login = () => {
           <div style={loginStyle} >
             
             </div>
-            <div className="mx-auto p-4" style={{border: '2px solid gray',
-                        width: '30%',
+            <div className="mx-auto p-4 login" style={{border: '2px solid gray',
+                        
                         backgroundColor: ' rgba( 208, 234, 245)  ',
     
                         marginTop:'-600px',

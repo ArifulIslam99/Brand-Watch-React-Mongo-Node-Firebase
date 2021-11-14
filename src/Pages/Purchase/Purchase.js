@@ -67,6 +67,7 @@ const Purchase = () => {
        <input {...register("email")} readOnly value={user.email} /> <br/> <br/>
        <input {...register("address")} placeholder="Enter Your Address"  /> <br/> <br/>
        <input type="tel" {...register("contact")} placeholder="Enter Your Phone Number" /> <br/>
+       <input  {...register("status")} value="pending" style={{visibility:'hidden'}} /> <br/>
        <input type="submit" value="Confirm booking"  style={{width:'20%',  backgroundColor:'green', color:'white', border:'1px solid green'}} />
      </form>
              </div>

@@ -28,7 +28,7 @@ const HomeBanner = () => {
 
         <div style={{width: '75%', marginTop:'-100px'}} className="row mx-auto mb-5" >
             
-          <div style={{border:'1px solid green', backgroundColor:'rgba(  224, 255, 165  , 0.8)'}} className="p-3 col-lg-4 d-flex align-items-center">
+          <div style={{border:'1px solid gray', backgroundColor:'rgba(  222, 221, 206   , 0.8)'}} className="p-3 col-lg-4 d-flex align-items-center">
               <div>
                   <img style={{width:'120px' , height:'100px' , borderRadius:'50%'}} src="https://fossil.scene7.com/is/image/FossilPartners/FS5855-alt?$sfcc_fos_medium$" alt="" />
               </div>
@@ -37,7 +37,7 @@ const HomeBanner = () => {
                   <p>Fossil Group, Inc. is an American fashion designer and manufacturer founded in 1984 by Tom Kartsotis and based in Richardson, Texas.</p>
               </div>
           </div>
-          <div style={{border:'1px solid green', backgroundColor:'rgba( 224, 255, 165  , 0.8)'}} className="p-3 col-lg-4 d-flex align-items-center">
+          <div style={{border:'1px solid gray', backgroundColor:'rgba(   222, 221, 206   , 0.8)'}} className="p-3 col-lg-4 d-flex align-items-center">
               <div>
                   <img style={{width:'120px' , height:'100px' , borderRadius:'50%'}} src="https://www.ethoswatches.com/the-watch-guide/wp-content/uploads/2016/04/rolex-featured.jpg" alt="" />
               </div>
@@ -46,7 +46,7 @@ const HomeBanner = () => {
                   <p>Rolex SA is a British-founded Swiss watch designer & manufacturer based in Geneva, Switzerland. Founded in 1905 as Wilsdorf and Davis.</p>
               </div>
           </div>
-          <div style={{border:'1px solid green', backgroundColor:'rgba( 224, 255, 165 , 0.8)'}} className="p-3 col-lg-4 d-flex align-items-center">
+          <div style={{border:'1px solid gray', backgroundColor:'rgba(  222, 221, 206  , 0.8)'}} className="p-3 col-lg-4 d-flex align-items-center">
               <div>
                   <img style={{width:'120px' , height:'100px' , borderRadius:'50%'}}  src="https://5.imimg.com/data5/JG/VB/PN/ANDROID-2959330/product-jpeg-500x500.jpg" alt="" />
               </div>

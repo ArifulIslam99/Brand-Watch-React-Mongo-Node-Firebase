@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Row } from 'react-bootstrap';
 import Navigation from '../Shared/Navigation/Navigation';
 import AllProduct from './AllProduct';
+import Footer from '../Shared/Footer/Footer';
 
 const Explore = () => {
     const [products, setProducts] = useState([]);
@@ -12,6 +13,8 @@ const Explore = () => {
         .then(data => setProducts(data))
 
     },[])
+
+  
     return (
        <>
           
@@ -26,7 +29,7 @@ const Explore = () => {
              margin:' 10px auto',padding:'5px'
              }}
             >Explore and get your Stylish One</h2>
-
+              
                 <Row xs={1} md={3}  className="my-5">
                {
                    products.map(product => <AllProduct 
@@ -37,7 +40,9 @@ const Explore = () => {
                    ></AllProduct> )
                }
             </Row>
+            
         </div>
+        <Footer></Footer>
        </>
     );
 };

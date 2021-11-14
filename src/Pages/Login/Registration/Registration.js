@@ -3,7 +3,7 @@ import loginbg from '../../../images/loginbg.jpg'
 import Navigation from '../../Shared/Navigation/Navigation';
 import TextField from '@mui/material/TextField';
 import { Button, Spinner } from 'react-bootstrap';
-import { Link , useHistory} from 'react-router-dom';
+import { Link , useHistory, useLocation} from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 import Alert from '@mui/material/Alert';
 
@@ -21,8 +21,9 @@ const loginStyle={
 const Registration = () => {
 
     const [loginData, setLoginData] = useState({});
-    const {user, registerUser, error , loading} = useAuth();
+    const {user, registerUser, error , loading, googleSignIn} = useAuth();
     const history = useHistory();
+    const location = useLocation();
 
 
     const handleInputChangle = event =>{
@@ -42,6 +43,12 @@ const Registration = () => {
         registerUser( loginData.email, loginData.password, loginData.name, history)
         event.preventDefault();
        
+    } 
+
+    const handleGoogleSignIn = () =>
+    {
+          googleSignIn(history, location);
+          
     }
     return (
         <>
@@ -49,8 +56,8 @@ const Registration = () => {
           <div style={loginStyle} >
             
             </div>
-            <div className="mx-auto p-4" style={{border: '2px solid gray',
-                        width: '30%',
+            <div className="mx-auto p-4 login" style={{border: '2px solid gray',
+                        
                         backgroundColor: ' rgba(   208, 234, 245  )  ',
     
                         marginTop:'-600px',
@@ -132,7 +139,7 @@ const Registration = () => {
 
                   
                       <p>-------------------</p>
-                      <Button variant="danger"><i class="fab fa-google"></i>oogle Sign in</Button> 
+                      <Button onClick={handleGoogleSignIn} variant="danger"><i class="fab fa-google"></i>oogle Sign in</Button> 
 
                      
                 

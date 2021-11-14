@@ -45,7 +45,7 @@ const UserOrders = () => {
         <div> 
             <h2 className="my-3 fw-bold">My Orders</h2>
             <TableContainer component={Paper}>
-      <Table sx={{width:'80%', margin:'auto'}}  aria-label="simple table">
+      <Table className="table" sx={{width:'80%', margin:'auto'}}  aria-label="simple table">
         <TableHead>
           <TableRow>
             <TableCell>Booking Id</TableCell>

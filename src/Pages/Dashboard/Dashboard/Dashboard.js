@@ -6,12 +6,7 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Divider from '@mui/material/Divider';
 import Drawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
 import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import MailIcon from '@mui/icons-material/Mail';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import {Button} from '@mui/material/';
@@ -26,6 +21,10 @@ import {
   } from "react-router-dom";
 import useAuth from '../../../hooks/useAuth';
 import Review from '../Review/Review';
+import MakeAdmin from '../MakeAdmin/MakeAdmin';
+import AddProduct from '../AddProduct/AddProduct';
+import ManageProducts from '../ManageProducts/ManageProducts';
+import ManageOrders from '../ManageOrders/ManageOrders';
  
 
 
@@ -34,14 +33,17 @@ const drawerWidth = 250;
 
 function Dashboard(props) {
     let { path, url } = useRouteMatch();
-    const {logOut, user} = useAuth();
+    const {logOut, user, admin} = useAuth();
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
     
-  };
+  }; 
+ 
+   console.log(admin)
+
 
   const drawer = (
      
@@ -49,14 +51,40 @@ function Dashboard(props) {
       <Toolbar />
       <Divider />
       <List sx={{paddingTop: '30%'}}>
-       
-        <Link to={`${url}`}> <Button variant="contained" color="success" sx={{marginBottom:'10px', width:'140px'}} >DashBoard</Button></Link> <br />
-        <Link to={`${url}/pay`}> <Button sx={{marginBottom:'10px', width:'140px'}} variant="contained" color="success">Pay</Button></Link> <br />
-        <Link to={`${url}/myorders`}> <Button sx={{marginBottom:'10px', width:'140px'}} variant="contained" color="success">My Orders</Button></Link> <br />
-        <Link to={`${url}/reviews`}> <Button sx={{marginBottom:'10px', width:'140px'}}variant="contained" color="success">Review</Button></Link> <br />
+      <Link to={`${url}`}> <Button variant="contained" color="success" sx={{marginBottom:'10px', width:'140px'}} >DashBoard</Button></Link> <br />
+         {
+           (admin) ?
+           <Box> 
+
+               <Link to={`${url}/manageorders`}> <Button variant="contained" color="success" sx={{marginBottom:'10px', width:'140px'}} >Manage All Order</Button></Link> <br />
+
+               <Link to={`${url}/addproduct`}> <Button variant="contained" color="success" sx={{marginBottom:'10px', width:'140px'}} >Add a Product</Button></Link> <br />
+
+              <Link to={`${url}/makeadmin`}> <Button variant="contained" color="success" sx={{marginBottom:'10px', width:'140px'}} >Make A Admin</Button></Link> <br />
+
+              <Link to={`${url}/manageproducts`}> <Button variant="contained" color="success" sx={{marginBottom:'10px', width:'140px'}} >Manage Products</Button></Link> <br />
+
+              
+
+           </Box> :
+           <Box>
+             
+
+        
+<Link to={`${url}/pay`}> <Button sx={{marginBottom:'10px', width:'140px'}} variant="contained" color="success">Pay</Button></Link> <br />
+
+<Link to={`${url}/myorders`}> <Button sx={{marginBottom:'10px', width:'140px'}} variant="contained" color="success">My Orders</Button></Link> <br />
+
+<Link to={`${url}/reviews`}> <Button sx={{marginBottom:'10px', width:'140px'}}variant="contained" color="success">Review</Button></Link> <br />
+           </Box>
+         }
+        
+  
         
         
-        <Link to="/home">  <Button  variant="contained" color="success" sx={{marginBottom:'10px', width:'140px'}} >Home</Button></Link> <br /> 
+        
+        <Link to="/home">  <Button  variant="contained" color="success" sx={{marginBottom:'10px', width:'140px'}} >Home</Button></Link> <br />
+
         <Button sx={{marginBottom:'10px', width:'140px'}} onClick={logOut} variant="contained" color="success">LogOut</Button>
 
        
@@ -142,6 +170,18 @@ function Dashboard(props) {
         </Route>
         <Route  path={`${path}/pay`}>
           <h3>Payment System Comming Soon</h3>
+        </Route>
+        <Route  path={`${path}/makeadmin`}>
+          <MakeAdmin></MakeAdmin>
+        </Route>
+        <Route  path={`${path}/addproduct`}>
+          <AddProduct></AddProduct>
+        </Route>
+        <Route  path={`${path}/manageproducts`}>
+          <ManageProducts></ManageProducts>
+        </Route>
+        <Route  path={`${path}/manageorders`}>
+          <ManageOrders></ManageOrders>
         </Route>
         <Route  path={`${path}/reviews`}>
           <Review></Review>

@@ -13,7 +13,7 @@ const Testimonial = () => {
     },[]) 
    
     return (
-        <div style={{width:"95%"}} className="mx-auto mb-5">
+        <div style={{width:"95%"}} className="mx-auto my-5">
            <h3 className="fs-3 fw-bold mb-4">What Our Customer Says</h3> 
 
            <Row  xs={1} md={3} >

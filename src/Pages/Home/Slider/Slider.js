@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const Slider = () => {
     return (
-        <div className="row mx-auto mb-5 mt-2" style={{width:'85%'}}> 
+        <div className="row mx-auto my-5 mt-2" style={{width:'85%'}}> 
         
             <div className="col-lg-8 w-50 mx-auto">
             <Carousel>
