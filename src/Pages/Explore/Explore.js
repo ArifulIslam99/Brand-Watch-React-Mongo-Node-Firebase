@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { Row } from 'react-bootstrap';
+import { Row, Spinner } from 'react-bootstrap';
 import Navigation from '../Shared/Navigation/Navigation';
 import AllProduct from './AllProduct';
 import Footer from '../Shared/Footer/Footer';
 
 const Explore = () => {
-    const [products, setProducts] = useState([]);
+    const [products, setProducts] = useState(null);
 
     useEffect(()=>{
         fetch('https://quiet-chamber-40235.herokuapp.com/products')
@@ -14,7 +14,7 @@ const Explore = () => {
 
     },[])
 
-  
+    if(products === null){return <Spinner animation="grow" ></Spinner>}
     return (
        <>
           
