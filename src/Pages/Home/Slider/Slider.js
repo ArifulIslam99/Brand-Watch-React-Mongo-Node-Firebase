@@ -6,8 +6,11 @@ const Slider = () => {
     return (
         <div className="row mx-auto my-5 mt-2" style={{width:'85%'}}> 
         
-            <div className="col-lg-8 w-50 mx-auto">
-            <Carousel>
+            <div 
+            data-aos="zoom-in-left"
+            
+            className="col-lg-8 w-50 mx-auto">
+            <Carousel >
   <Carousel.Item>
     <img
       className="d-block w-100"
@@ -37,7 +40,7 @@ const Slider = () => {
 </Carousel>
             </div>
             <div 
-          
+            data-aos="zoom-out-right"
             className="col-lg-4 m-auto ">
                  <h3 className="fw-bold">Experience The Most Premium <br /> Collection of watch. <br />
                  Smart Watches are also Available. </h3> 

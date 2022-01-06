@@ -4,8 +4,12 @@ import { Card, Col } from 'react-bootstrap';
 
 const userReview = ({review}) => {
     return (
-        <Col>
-      <Card className="mb-3">
+        <Col
+        data-aos="flip-left"
+      data-aos-easing="linear"
+      data-aos-duration="1500"
+        >
+      <Card >
 
         <Card.Body>
           

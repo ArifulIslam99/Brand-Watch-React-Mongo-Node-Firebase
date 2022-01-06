@@ -2,14 +2,14 @@ import React from 'react';
 import { Button, Container, Nav, Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
-
+import logo from '../../../images/logo_TW.png'
 const Navigation = () => {
 
   const {user, logOut} = useAuth();
     return (
-        <Navbar collapseOnSelect expand="lg" bg="success" variant="dark">
+        <Navbar collapseOnSelect expand="lg" style={{background:'white'}} variant="light">
         <Container>
-        <Navbar.Brand as={Link} to='/' >Times World</Navbar.Brand>
+        <Navbar.Brand as={Link} to='/' > <img style={{width:'250px', height:'80px'}} src={logo} alt="" /> </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">

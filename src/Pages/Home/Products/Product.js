@@ -5,7 +5,11 @@ import { Link } from 'react-router-dom';
 const Product = ({product}) => {
     const {img, model, brand, des, _id} = product;
     return (
-        <Col>
+        <Col
+        data-aos="zoom-in"
+     data-aos-easing="ease-out-cubic"
+     data-aos-duration="2000"
+        >
         <Card className="my-2 p-3">
           <Card.Img
           className="mx-auto"

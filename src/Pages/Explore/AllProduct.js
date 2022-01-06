@@ -6,7 +6,11 @@ const AllProduct = ({product}) => {
 
     const {img, model, brand, des , price, _id} = product;
     return (
-        <Col>
+        <Col
+        data-aos="zoom-in-up"
+      data-aos-easing="linear"
+      data-aos-duration="1500"
+        >
         <Card className="my-2 p-3">
           <Card.Img
           className="mx-auto"
